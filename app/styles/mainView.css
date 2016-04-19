@@ -2,7 +2,7 @@
 	border-top: 1.2px solid #888;
 	border-color: #888;
 	overflow-y: auto;
-	height: 300px;
+	height: 500px;
 }
 .listing li {
 	list-style: none;
@@ -13,6 +13,7 @@
 	height: 58px;
 	line-height: 38px;
 	color: #222;
+	background-color: white;
 }
 .listing li i {
 	font-size: 1em;
@@ -87,4 +88,7 @@
 }
 .selected:hover {
 	background-color: gray;
+}
+body {
+	/*background-color: #e0e0e0;*/
 }

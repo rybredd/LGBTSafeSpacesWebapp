@@ -19,7 +19,7 @@
 
     <div id="views" class="col-xs-12">
         <div id="map" class="col-xs-6">
-            <ng-map zoom="10" center="[40.74, -74.18]">
+            <ng-map zoom="10" style="height: 500px;" center="[40.74, -74.18]">
                 <!-- place markers here for all listings (if selected) -->
                 <marker ng-repeat="listing in listings" 
                         position="{{listing.position}}"
