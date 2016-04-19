@@ -10,7 +10,8 @@
  */
 angular
   .module('lgbtsafeSpacesWebappApp', [
-    'ngRoute'
+    'ngRoute',
+    'ngMap'
   ])
   .config(function ($routeProvider) {
     $routeProvider
@@ -19,10 +20,10 @@ angular
         controller: 'MainCtrl',
         controllerAs: 'main'
       })
-      .when('/about', {
-        templateUrl: 'views/about.html',
-        controller: 'AboutCtrl',
-        controllerAs: 'about'
+      .when('/listing/:id', {
+        templateUrl: 'views/listing.html',
+        controller: 'ListingCtrl',
+        controllerAs: "listing"
       })
       .otherwise({
         redirectTo: '/'
