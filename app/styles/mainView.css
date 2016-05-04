@@ -75,8 +75,8 @@
 	text-align: center;
 }
 #view-container {
-	/*width: 1000px !important;*/
-	max-width: 1800px !important;
+    width: 100% !important;
+    max-width: 1800px !important;
 }
 .toolbar button {
 	line-height: 1.8em;
