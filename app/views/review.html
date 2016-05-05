@@ -1,18 +1,25 @@
 <div class="container" style="position: relative">
 	<button class="btn btn-info" ng-click="return()">Back to Home</button>
-	<h1>
-		Add Review
-		<i class="fa fa-{{page.icon}} fa-fw"></i>
-		<div style="font-size: 0.8em">
-			{{Location Name}} <i class="star fa fa-star fa-fw"></i>
+	<h1>Add Review</h1>
+
+	<h2>{{page.name}}</h2>
+
+
+	<form>
+		<br>
+		<h4><strong>Title</strong></h4>
+		<input type="text" style="width: 100%; max-width: 400px; font-size: 1.3em" 
+		placeholder="Title" ng-model="review.title" required/><br><br>
+
+		<h4 style="margin-bottom: 0;"><strong>How Many Stars?</strong></h4>
+		<div style="font-size: 3em">
+			<i ng-repeat="star in stars track by $index" class="fa fa-star fa-fw" ng-click="select($index)" ng-class="{star: stars[$index].selected}"></i>
 		</div>
-	</h1>
-	<input size="100" type="text" style="height: 300px"/>
-	
-
-</div>
-
-<div class="container" style="position: relative">
-	<button class="btn btn-info" ng-click="return()">Clear Entry</button>
-	<button class="btn btn-info" ng-click="return()">Add Review</button>
+		<br>
+		<textarea class="review-content" rows="10" cols="80" style="resize: none;" 
+		placeholder="Enter your review here ... " ng-model="review.content" required/>
+		<br>
+		<input type="reset" class="btn btn-danger" value="Clear Entry"/>
+		<button class="btn btn-success" ng-click="submitReview()">Add Review</button>
+	</form>
 </div>

@@ -153,6 +153,11 @@ angular.module('lgbtsafeSpacesWebappApp')
     	return filterReviews(parseInt(id));
     }
 
+    // adds a review to the list of reviews
+    this.addReview = function(review) {
+    	reviews.push(review);
+    }
+
 	// makes a GET request to the REST client to get all locations 
 	this.getListings = function() {
 		return $q(function(resolve, reject) {

@@ -81,6 +81,14 @@ angular.module('lgbtsafeSpacesWebappApp')
     	$rootScope.current = listing;
     }
 
+    $scope.submitLocation = function() {
+        $location.path("/submit");
+    }
+
+    $scope.safety = function() {
+        $location.path("/safety");
+    }
+
     $scope.showDetails = function(event, listing) {
         $scope.selected = listing;
         $scope.map.showInfoWindow("info-window", this);

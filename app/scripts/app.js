@@ -26,14 +26,17 @@ angular
         controllerAs: "listing"
       })
       .when('/safety', {
-        templateUrl: 'views/safetyinfo.html',
-        controller: 'SafetyCtrl',
-        controllerAs: "safety"
+        templateUrl: 'views/safetyinfo.html'
       })
-      .when('/write', {
+      .when('/write/:id', {
         templateUrl: 'views/review.html',
         controller: 'ReviewCtrl',
         controllerAs: "review"
+      })
+      .when('/submit', {
+        templateUrl: 'views/submit.html',
+        controller: 'SubmitCtrl',
+        controllerAs: "submit"
       })
       .otherwise({
         redirectTo: '/'

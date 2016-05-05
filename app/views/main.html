@@ -1,7 +1,11 @@
 <div class="cold-md-12 col-xs-12">
     <div class="toolbar">
         <div class="col-xs-2">
-            <img alt="appLogo" height="30px" width="100px"/>
+            <button class="btn btn-danger pull-left" ng-click="safety()">
+            <i class="fa fa-exclamation-circle fa-fw"></i> 
+                Safety Information
+            <i class="fa fa-exclamation-circle fa-fw"></i>
+            </button>
         </div>
         <div class="col-xs-8">
             <div class="filter-title">Search Filters</div>
@@ -17,7 +21,7 @@
             </ul>
         </div>
         <div class="col-xs-2">
-            <button class="btn btn-success pull-right" disabled><i class="fa fa-plus fa-fw"></i>Submit a Location</button>
+            <button class="btn btn-success pull-right" ng-click="submitLocation()"><i class="fa fa-plus-circle fa-fw"></i> Submit a Location</button>
         </div>
     </div>
 
@@ -27,6 +31,7 @@
                 <!-- place markers here for all listings (if selected) -->
                 <marker position="current" animation="Animation.DROP" centered="true" icon="images/location.png"></marker>
                 <marker ng-repeat="listing in listings2" 
+                        ng-show="display(listing)"
                         position="{{listing.lat + ',' + listing.lng}}"
                         title="{{listing.name}}"
                         on-click="showDetails(event, listing)"
@@ -35,7 +40,7 @@
                 <info-window id="info-window">
                     <div ng-non-bindable="">
                         <strong>{{selected.name}}</strong><br>
-                        <i ng-repeat="icon in selected.icons" class="fa fa-{{icon}} fa-fw"></i>
+                        <i ng-repeat="icon in getOffers(selected)" class="fa fa-{{icon}} fa-fw"></i>
                     </div>
                 </info-window>
             </ng-map>
