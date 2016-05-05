@@ -31,12 +31,20 @@
 	position: absolute;
 	bottom: 0;
 	right: 0;
-	font-size: 1em;
+	font-size: 1.2em;
+}
+.listing-rating span {
+	font-size: 0.68em !important;
 }
 .star {
 	color: gold;
 	-webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: orange;
+}
+.filter-title {
+	margin: 0 auto;
+	text-align: center;
+	text-transform: uppercase;
 }
 .filters {
 	height: 50px;
@@ -45,13 +53,17 @@
 	display: inline-block;
 	/*padding: 5px 10px 5px 10px;*/
 	background-color: white;
-	margin-right: 5px;
+	margin: 8px 10px 8px;
 	border: 1.2px solid #999;
 	border-radius: 5px;
 }
 .filter {
 	height: 50px;
 	width: 60px;
+}
+.filter-text {
+	color: black !important;
+	font-size: 0.68em;
 }
 .filters li:hover {
 	background-color: blue;
@@ -68,7 +80,7 @@
 	text-align: center;
 }
 #views {
-	margin-top: 30px;
+	margin-top: 50px;
 }
 .text-center {
 	margin: 0 auto;
@@ -77,6 +89,9 @@
 #view-container {
     width: 100% !important;
     max-width: 1800px !important;
+}
+.toolbar {
+	margin-bottom: 20px !important;
 }
 .toolbar button {
 	line-height: 1.8em;

@@ -4,42 +4,54 @@
             <img alt="appLogo" height="30px" width="100px"/>
         </div>
         <div class="col-xs-8">
+            <div class="filter-title">Search Filters</div>
             <ul class="filters">
                 <li ng-repeat="icon in filters">
                     <div class="filter" ng-click="select($index)" ng-class="{selected: icon.selected === true}">
                         <span>
                             <i class="fa fa-{{icon.name}} fa-fw"></i>
-                            <br>
-                        </span>
+                        </span><br>
+                        <span class="filter-text">{{icon.label}}</span>
                     </div>
                 </li>
             </ul>
         </div>
         <div class="col-xs-2">
-            <button class="btn btn-success" disabled><i class="fa fa-plus fa-fw"></i>Submit</button>
+            <button class="btn btn-success pull-right" disabled><i class="fa fa-plus fa-fw"></i>Submit a Location</button>
         </div>
     </div>
 
     <div id="views" class="col-xs-12">
         <div id="map" class="col-xs-6">
-            <ng-map zoom="10" style="height: 500px;" center="[40.74, -74.18]">
+            <ng-map zoom="14" style="height: 500px;" center="[38.982324,-76.943104]">
                 <!-- place markers here for all listings (if selected) -->
-                <marker ng-repeat="listing in listings" 
-                        position="{{listing.position}}"
+                <marker position="current" animation="Animation.DROP" centered="true" icon="images/location.png"></marker>
+                <marker ng-repeat="listing in listings2" 
+                        position="{{listing.lat + ',' + listing.lng}}"
                         title="{{listing.name}}"
-                        icon="images/{{listing.icon}}.png"
+                        on-click="showDetails(event, listing)"
                 </marker>
+
+                <info-window id="info-window">
+                    <div ng-non-bindable="">
+                        <strong>{{selected.name}}</strong><br>
+                        <i ng-repeat="icon in selected.icons" class="fa fa-{{icon}} fa-fw"></i>
+                    </div>
+                </info-window>
             </ng-map>
         </div>
 
         <ul id="listings" class="col-xs-6">
-            <a class="listing" ng-repeat="listing in listings" ng-click="view(listing)">
-                <li ng-show="listing.display" style="position: relative;">
+            <a class="listing" ng-repeat="listing in listings2" ng-click="view(listing)">
+                <li ng-show="display(listing)" style="position: relative;">
                     <img alt="listing image" height="40" width="100"/>
                     <span class="text-center"><p>{{listing.name}}</span>
-                    <i class="listing-icon fa fa-{{listing.icon}} fa-fw"></i>
+                    <span class="listing-icon">
+                        <i ng-repeat="icon in getOffers(listing)" class="fa fa-{{icon}} fa-fw"></i>
+                    </span>
                     <span class="listing-rating">
-                        {{listing.stars}} <i class=" star fa fa-star fa-fw"></i>
+                        <i ng-repeat="star in range(listing.stars) track by $index" class=" star fa fa-star fa-fw"></i>
+                        <span> Rating</span>
                     </span>
                 </li>
                 <li ng-show="listings.length === 0">

@@ -8,7 +8,7 @@
  * Controller of the lgbtsafeSpacesWebappApp
  */
 angular.module('lgbtsafeSpacesWebappApp')
-  .controller('MainCtrl', ['$scope', '$location', '$rootScope', function($scope, $location, $rootScope) {
+  .controller('MainCtrl', ['$scope', '$location', '$rootScope', 'NgMap', 'dataService', function($scope, $location, $rootScope, NgMap, dataService) {
     var updateList = function(filter) {
         for (var i in $scope.listings) {
             var listing = $scope.listings[i];
@@ -18,89 +18,75 @@ angular.module('lgbtsafeSpacesWebappApp')
         }
     }
 
+    NgMap.getMap().then(function(map) {
+        console.log('map', map);
+        $scope.map = map;
+    });
+
+    $scope.range = function(int) {
+        return new Array(int);
+    }
+
     $rootScope.filters = [
         {
             name: "user", 
-            selected: true
+            selected: true,
+            label: "Crisis Centers"
         },
         {
             name: "transgender-alt", 
-            selected: true
+            selected: true,
+            label: "Bathrooms"
         },
         {
             name: "home", 
-            selected: true
+            selected: true,
+            label: "Shelters"
         },
         {
             name: "flag",
-            selected: true
+            selected: true,
+            label: "Safe Spaces"
         }
     ];
 
-    $scope.select = function(index) {
-        if ($rootScope.filters[index].selected) {
-            $rootScope.filters[index].selected = false;
-        } else {
-            $rootScope.filters[index].selected = true;
-        }
-        
-        // update listings to show only filtered ones
-        updateList($rootScope.filters[index].name);
+    $scope.display = function (listing) {
+        return (listing.verifiedSafeSpace === true && $rootScope.filters[3].selected) ||
+                (listing.genderNeutralBathroom === true && $rootScope.filters[1].selected) ||
+                (listing.crisisCenter === true && $rootScope.filters[0].selected) ||
+                    (listing.shelter === true && $rootScope.filters[1].selected);
     }
 
-    $scope.listings = [
-        {
-            name: 'CrisisCenter1',
-            icon: "user",
-            id: 1,
-            display: true,
-            position: "[40.71, -74.21]",
-            stars: 5
-        },
-        {
-            name: 'Bathroom1',
-            icon: "transgender-alt",
-            id: 2,
-            display: true,
-            position: "[40.72, -74.14]",
-            stars: 2
-        },
-        {
-            name: 'Bathroom2',
-            icon: "transgender-alt",
-            id: 3,
-            display: true,
-            position: "[40.76, -74.20]",
-            stars: 4
-        },
-        {
-            name: 'CrisisCenter2',
-            icon: "user",
-            id: 4,
-            display: true,
-            position: "[40.72, -74.18]",
-            stars: 1
-        },
-        {
-            name: 'SafeSpace1',
-            icon: "flag",
-            id: 5,
-            display: true,
-            position: "[40.80, -74.12]",
-            stars: 4
-        },
-        {
-            name: "SafeSpace2",
-            icon: "flag",
-            id: 6,
-            display: true,
-            position: "[40.62, -74.20]",
-            stars: 3
-        }
-    ];
+    $scope.selected = {};
+
+    $scope.select = function(index) {
+        $rootScope.filters[index].selected = !$rootScope.filters[index].selected;
+
+        // update listings to show only filtered ones
+        // updateList($rootScope.filters[index].name);
+    }
+
+    dataService.getListings()
+    .then(function(data) {
+        $scope.listings2 = data;
+    }, function(error) {
+        $scope.listings2 = [];
+    });
+
+    
+    $scope.listings2 = []; 
 
     $scope.view = function(listing) {
         $location.path("/listing/" + listing.id);
     	$rootScope.current = listing;
+    }
+
+    $scope.showDetails = function(event, listing) {
+        $scope.selected = listing;
+        $scope.map.showInfoWindow("info-window", this);
+    };
+
+    $scope.getOffers = function(listing) {
+        return dataService.getOffers(listing);
     }
   }]);
