@@ -1,0 +1,21 @@
+.page-photo {
+	margin-bottom: 12px;
+}
+ng-map {
+	margin-bottom: 12px;
+}
+.page-options h4 {
+	margin-bottom: 15px;
+}
+.review {
+	padding: 12px;
+	border: 1.2px solid #eaeaea;
+	border-radius: 5px;
+	margin-bottom: 12px;
+}
+.review-header {
+	margin-bottom: 15px;
+}
+.review-header h5 {
+	margin: 0;
+}

@@ -25,6 +25,16 @@ angular
         controller: 'ListingCtrl',
         controllerAs: "listing"
       })
+      .when('/safety', {
+        templateUrl: 'views/safetyinfo.html',
+        controller: 'SafetyCtrl',
+        controllerAs: "safety"
+      })
+      .when('/write', {
+        templateUrl: 'views/review.html',
+        controller: 'ReviewCtrl',
+        controllerAs: "review"
+      })
       .otherwise({
         redirectTo: '/'
       });
