@@ -13,7 +13,7 @@
 	<div class="row">
 		<div class="col-md-6 col-sm-6">
 			<img class="page-photo" alt="listing photo" style="width: 100%;" height="300"/>
-			<ng-map zoom="14" style="width: 100%;" center="{{page.lat + ',' + page.lng}}">
+			<ng-map zoom="18" style="width: 100%;" center="{{page.lat + ',' + page.lng}}">
 				<marker position="current" animation="Animation.DROP" icon="images/location.png"></marker>
 		        <marker position="{{page.lat + ',' + page.lng}}" center="true" title="Hello World!"></marker>
 		    </ng-map>
@@ -21,7 +21,7 @@
 		<div id="page-options" class="col-md-6 col-sm-6">
 			<div>
 				<h4><u>Been Here?</u></h4>
-				<button class="btn btn-success" ng-click="review()">Leave a Review</button>
+				<button class="btn btn-success" ng-click="review()">Add Review</button>
 				<br><br>
 			</div>
 			<div>

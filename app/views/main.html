@@ -29,7 +29,8 @@
         <div id="map" class="col-xs-6">
             <ng-map zoom="14" style="height: 500px;" center="[38.982324,-76.943104]">
                 <!-- place markers here for all listings (if selected) -->
-                <marker position="current" animation="Animation.DROP" centered="true" icon="images/location.png"></marker>
+                <marker position="current" animation="Animation.DROP" centered="false" icon="images/location.png"></marker>
+                <marker position="[38.982324,-76.943104]" animation="Animation.DROP" centered="true" icon="images/location.png"></marker>
                 <marker ng-repeat="listing in listings2" 
                         ng-show="display(listing)"
                         position="{{listing.lat + ',' + listing.lng}}"
