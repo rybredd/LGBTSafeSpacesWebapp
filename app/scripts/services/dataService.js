@@ -23,6 +23,7 @@ angular.module('lgbtsafeSpacesWebappApp')
         "crisisCenter": false,
         "shelter": false,
         "friendlyBusiness":true,
+        "image": "images/Martin-Hall.gif",
         "stars": 3
       },
       {
@@ -35,6 +36,7 @@ angular.module('lgbtsafeSpacesWebappApp')
         "crisisCenter": false,
         "shelter": false,
         "friendlyBusiness":true,
+        "image": "images/hbk.jpg",
         "stars": 5
       },
       {
@@ -47,7 +49,8 @@ angular.module('lgbtsafeSpacesWebappApp')
         "crisisCenter": false,
         "shelter": false,
         "friendlyBusiness":true,
-        "stars": 5
+        "image": "images/stamp.jpg",
+        "stars": 0
       },
       {
         "id": 5,
@@ -59,7 +62,8 @@ angular.module('lgbtsafeSpacesWebappApp')
         "crisisCenter": false,
         "shelter": false,
         "friendlyBusiness":true,
-        "stars": 5
+        "image": "images/mckeldin.jpg",
+        "stars": 4
       },
       {
         "id": 6,
@@ -83,7 +87,8 @@ angular.module('lgbtsafeSpacesWebappApp')
         "crisisCenter": false,
         "shelter": false,
         "friendlyBusiness":true,
-        "stars": 5
+        "image": "images/applebees.jpg",
+        "stars": 3
       },
       {
         "id": 8,
@@ -95,6 +100,7 @@ angular.module('lgbtsafeSpacesWebappApp')
         "crisisCenter": false,
         "shelter": false,
         "friendlyBusiness":true,
+        "image": "images/starbucks.jpg",
         "stars": 5
       },
       {
@@ -119,7 +125,8 @@ angular.module('lgbtsafeSpacesWebappApp')
         "crisisCenter": false,
         "shelter": false,
         "friendlyBusiness":true,
-        "stars": 5
+        "image": "images/kentlands.jpg",
+        "stars": 4
       }
     ];
 

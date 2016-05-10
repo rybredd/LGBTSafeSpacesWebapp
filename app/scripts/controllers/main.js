@@ -51,10 +51,14 @@ angular.module('lgbtsafeSpacesWebappApp')
     ];
 
     $scope.display = function (listing) {
-        return (listing.verifiedSafeSpace === true && $rootScope.filters[3].selected) ||
-                (listing.genderNeutralBathroom === true && $rootScope.filters[1].selected) ||
-                (listing.crisisCenter === true && $rootScope.filters[0].selected) ||
-                    (listing.shelter === true && $rootScope.filters[1].selected);
+        if (listing.id == 4) {
+            return $rootScope.didSubmitStamp;
+        } else {
+            return (listing.verifiedSafeSpace === true && $rootScope.filters[3].selected) ||
+            (listing.genderNeutralBathroom === true && $rootScope.filters[1].selected) ||
+            (listing.crisisCenter === true && $rootScope.filters[0].selected) ||
+            (listing.shelter === true && $rootScope.filters[1].selected);
+        }
     }
 
     $scope.selected = {};

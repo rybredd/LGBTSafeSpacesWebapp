@@ -7,12 +7,19 @@
 		<i class="fa fa-{{page.icon}} fa-fw"></i>
 		<div style="font-size: 0.8em">
 			<span style="font-size: 0.6em">Average Rating</span><br>
-			<i ng-repeat="star in range(page.stars) track by $index" class="star fa fa-star fa-fw"></i>
+			<i ng-show="range(page.stars).length > 0" ng-repeat="star in range(page.stars) track by $index" class="star fa fa-star fa-fw"></i>
+
+			<span ng-show="range(page.stars).length == 0 && !didStampReview">
+			No Stars<br>
+			</span>
+
+			<i ng-show="didStampReview && page.id == 4" ng-repeat="star in range(5) track by $index" class="star fa fa-star fa-fw"></i>
 		</div>
 	</h1>
 	<div class="row">
 		<div class="col-md-6 col-sm-6">
-			<img class="page-photo" alt="listing photo" style="width: 100%;" height="300"/>
+			<img ng-src="{{page.image}}" ng-show="page.image != null" class="page-photo" alt="listing photo" style="width: 100%;" height="300"/>
+			<img ng-show="page.image == null" class="page-photo" alt="listing photo" style="width: 100%;" height="300"/>
 			<ng-map zoom="18" style="width: 100%;" center="{{page.lat + ',' + page.lng}}">
 				<marker position="current" animation="Animation.DROP" icon="images/location.png"></marker>
 		        <marker position="{{page.lat + ',' + page.lng}}" center="true" title="Hello World!"></marker>
@@ -33,6 +40,23 @@
 					</div>
 					<p>{{review.content}}</p>
 				</div>
+
+				<div class="review" ng-show="page.id == 2 && didMartinReview">
+					<div class="review-header">
+						<h5><strong>Not very accessible</strong></h5>
+						<i ng-repeat="star in range(3) track by $index" class="fa fa-star fa-fw"></i>
+					</div>
+					<p>Two single room unisex bathrooms. Building only accessible with campus ID outside of business hours!</p>
+				</div>
+
+				<div class="review" ng-show="page.id == 4 && didStampReview">
+					<div class="review-header">
+						<h5><strong>Super Clean!</strong></h5>
+						<i ng-repeat="star in range(5) track by $index" class="fa fa-star fa-fw"></i>
+					</div>
+					<p>Bathroom is well-kept and accessible.</p>
+				</div>
+
 				<div ng-show="reviews.length === 0">
 				<div class="review-header">
 					<h5><strong>No Reviews Yet!</strong></h5>

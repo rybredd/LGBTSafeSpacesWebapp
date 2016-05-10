@@ -26,6 +26,12 @@ angular.module('lgbtsafeSpacesWebappApp')
 			alert("You submitted " + $scope.page.name + " at position [" +
 			$scope.page.lat + ", " + $scope.page.lng + "]");
 		},300);
+
+		if ($scope.page.name == "Stamp Student Union") {
+			$rootScope.didSubmitStamp = true;
+		}
+
+		$scope.return();
 	}
 
 	$scope.return = function() {

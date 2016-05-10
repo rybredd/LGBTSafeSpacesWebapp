@@ -44,7 +44,14 @@ angular.module('lgbtsafeSpacesWebappApp')
 	}
 
 	$scope.submitReview = function() {
-		dataService.addReview($scope.review);
+		dataService.addReview($scope.review, $routeParams.id);
+		
+		if ($routeParams.id == 4) {
+			$rootScope.didStampReview = true;
+		} else if ($routeParams.id == 2) {
+			$rootScope.didMartinReview = true;
+		}
+		
 		alert("Thanks for your review!");
 		$location.path("/listing/" + $routeParams.id);
 	}

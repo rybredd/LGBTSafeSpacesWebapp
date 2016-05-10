@@ -30,7 +30,7 @@
             <ng-map zoom="14" style="height: 500px;" center="[38.982324,-76.943104]">
                 <!-- place markers here for all listings (if selected) -->
                 <marker position="current" animation="Animation.DROP" centered="false" icon="images/location.png"></marker>
-                <marker position="[38.982324,-76.943104]" animation="Animation.DROP" centered="true" icon="images/location.png"></marker>
+                <!-- <marker position="[38.982324,-76.943104]" animation="Animation.DROP" centered="true" icon="images/location.png"></marker> -->
                 <marker ng-repeat="listing in listings2" 
                         ng-show="display(listing)"
                         position="{{listing.lat + ',' + listing.lng}}"
@@ -40,7 +40,7 @@
 
                 <info-window id="info-window">
                     <div ng-non-bindable="">
-                        <strong>{{selected.name}}</strong><br>
+                        <a href="/#/listing/{{selected.id}}" <strong>{{selected.name}}</strong></a><br>
                         <i ng-repeat="icon in getOffers(selected)" class="fa fa-{{icon}} fa-fw"></i>
                     </div>
                 </info-window>
@@ -50,13 +50,16 @@
         <ul id="listings" class="col-xs-6">
             <a class="listing" ng-repeat="listing in listings2" ng-click="view(listing)">
                 <li ng-show="display(listing)" style="position: relative;">
-                    <img alt="listing image" height="40" width="100"/>
-                    <span class="text-center"><p>{{listing.name}}</span>
+                    <img ng-src="{{listing.image}}" alt="listing image" height="40" width="50" style="margin-right: 20px"/>
+                    <span class="pull-left">
+                    {{listing.name}}
+                    </span>
                     <span class="listing-icon">
                         <i ng-repeat="icon in getOffers(listing)" class="fa fa-{{icon}} fa-fw"></i>
                     </span>
                     <span class="listing-rating">
                         <i ng-repeat="star in range(listing.stars) track by $index" class=" star fa fa-star fa-fw"></i>
+                        <i ng-show="didStampReview && listing.id == 4" ng-repeat="star in range(5) track by $index" class=" star fa fa-star fa-fw"></i>
                         <span> Rating</span>
                     </span>
                 </li>
