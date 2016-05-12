@@ -1,0 +1,28 @@
+news clips/introduction/context
+There has been a lot of discussion in the news recently over the topic of discrimination; in all forms. Recently North Carolina passed the Public Facilities Privacy & Security Act, commonly known as House Bill 2. The purpose behind this bill creates an unsafe environment for many members of the LGBT+ community. We have created our app to try and solve part of this issue; and to assist the needs of the LGBT community who don't feel safe by giving them easy access to services that will make them feel safer.
+
+A smiliar app, and one we got our inspiration from was Refuge Restrooms. With  over 9,000 download, Refuge hopes to provide transgender and gender-nonbinary persons with a listing of gender-neutral facilities.
+
+Another inspirational / similar application is myqueer review, which is a Yelp like website that rates and reviews businesses based on the treatment of the GSM community. Queer Review is crowd sourced and reviews places that fall into one the following categories: beauty and spa, clubs and nightlife, food and drink, fun and leisure, health and medical and places of worship. 
+
+The platform for this application comes in two forms; a mobile and web interface. For this demonstration we have a user browsing through the web application searching for a gender neutral restroom.
+
+In order to make locations easier for users to find, and to increase the usability of the app, we have implemented a filtering ability. Here the user applies filters to find the nearest gender neutral restroom, but unfortunately finds that there are none nearby. They ask a nearby student where the restrooms are, and is pointed in the direction of a restroom, and the user heads toward it.
+
+Upon walking up to the restroom, the user confirms that it is a gender-neutral restroom, and walks in happily. Since this location was not included in the app, the user decides to add it to the crowdsourced database to make the app better for all users.
+
+Here the user gets on their computer and uses the submit location form to add the new location that they just used to the system. afterwards, it is populated in the location list for all users to see.
+
+after adding the new location, it has no stars due to having no ratings. the user then opens the listing page and adds a new review. after the review has been added, the rating information for that location is computed and displayed prominently for the location.
+
+Deciding to see what else this app offers, the user begins browsing the site and comes across the emergency safety information screen. This screen is an easy to access way for users to find helpful tips to stay safe in the event that they are in an uncomfortable situation, as well as providing number for hotlines that they can call at any time.
+
+Our initial designs focused on trying different ways to present our safe spaces location content. From a tile based design, list views and mapview designs,  each presenting different design opportunities and limitations. 
+
+After team discussions and lowfi beta testing, we decided to pursue a list based approach and map view approach for presenting our data in the mid fi prototypes. We also explored different ways of accessing the “add location”,  “add review”, “filters” and “safety information” modules. From using navigation drawers to using app bar navigation buttons.
+
+The results from our midfi prototypes overwhelmingly preferred the map view and a combination of navigation drawer and buttons on the UI to access the different modules our platform provided. Users liked the google maps resemblance and found it easier to visually determine which locations were of interest to them. 
+
+Thus, for our interactive prototypes we decided to implement the mapview approach and still continue experimenting on how to access the different modules. 
+
+
